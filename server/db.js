@@ -1,11 +1,11 @@
 const Pool = require('pg').Pool
+require('dotenv').config()
 
 const pool = new Pool({
-    user: 'postgres',
-    password: 'hassaan',
-    host: '172.31.211.55',
-    port: 5432,
-    database: 'music'
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
 })
 
 pool.query('SELECT NOW();', (err, res) => {
