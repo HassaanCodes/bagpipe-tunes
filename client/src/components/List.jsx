@@ -10,7 +10,8 @@ const List = () => {
 
     const getTunes = async () => {
         try {
-            let response = await fetch("http://localhost:3000/tunes")
+            let API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000"
+            let response = await fetch(`${API_URL}/tunes`)
             let tunes_json = await response.json()
 
             setTunes(tunes_json)
