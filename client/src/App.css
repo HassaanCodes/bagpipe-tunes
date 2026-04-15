@@ -43,6 +43,12 @@ h1, h2 {
   padding: 0 25px;
 }
 
+.tune a {
+  text-decoration: none;
+  color: inherit;
+  font: inherit;
+}
+
 ul {
   display: flex;
   flex-direction: row;

@@ -32,7 +32,7 @@ const List = () => {
                     tunes.map(tune => (
                         <>
                         <section className='tune'>
-                            <h5>{tune.tune}</h5>
+                            <h5><a href={tune.url}>{tune.tune}</a></h5>
                             <h5>{tune.sheet}</h5>
                         </section>
                         </>

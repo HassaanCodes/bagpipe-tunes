@@ -1,4 +1,5 @@
 const pool = require('./db')
+const genURL = require('./url')
 const cors = require('cors')
 const express = require('express')
 const app = express()
@@ -13,7 +14,8 @@ app.listen(3000, () => {
 app.get('/tunes', async (req, res) => {
     try {
         let result = await pool.query("SELECT tune, sheet FROM tunes;")
-        res.json(result.rows)
+        let urls = await result.rows.map(genURL)
+        res.json(urls)
     } catch (error) {
         console.error(error.message)
     }
