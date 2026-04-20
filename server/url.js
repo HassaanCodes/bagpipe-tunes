@@ -9,14 +9,6 @@ const s3 = new AWS.S3({
 
 function genURL(row) {
 
-    if (row['tune'] !== "Greenwoodside") {
-        return {
-            tune: row.tune,
-            sheet: row.sheet,
-            url: ""
-        } 
-    }
-
     const params = {
         Bucket: "bagpipe-tunes",
         Key: `tunes/${row['tune']}.pdf`,
