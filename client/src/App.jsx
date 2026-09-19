@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 import List from './components/List'
+import Intro from './components/Intro'
+import Dropdown from './components/Dropdown'
 
 function App() {
 
@@ -15,11 +17,12 @@ function App() {
           </ul>
         </nav>
 
-        <h1>Bagpipe Tunes</h1>
       </header>
 
       <main>
-        <List/>
+        <Intro/>
+        <Dropdown/>
+        {/* <List/> */}
       </main>
 
       <footer>

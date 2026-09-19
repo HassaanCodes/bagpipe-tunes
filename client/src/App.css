@@ -2,14 +2,17 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: 'Yuyu';
 }
 
 body {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url("/images/pipe-band.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url("/images/pipe-band.jpg");
   background-size: cover;        
   background-position: center;  
   background-repeat: no-repeat; 
   color: whitesmoke;
+  min-height: 100vh;
 }
 
 #root {
@@ -64,12 +67,81 @@ main {
   gap: 40px;
 }
 
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.intro h2 {
+  margin-bottom: 20px;
+}
+
+.intro p:last-of-type {
+  margin-bottom: 20px;
+}
+
+.list {
+  align-self: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.btn {
+  background-color: transparent;
+  color: bisque;
+  width: 50%;
+  font-size: x-large;
+  border-radius: 12px;
+  align-self: center;
+  padding: 5px;
+}
+
+.dropdown {
+  align-self: center;
+  color: bisque;
+  position: absolute;
+  top: 40px;
+  width: 50%;
+  
+  border-radius: 12px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+}
+
+.dropdown a {
+  display: block;
+  font-size: x-large;
+  padding: 20px;
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+}
+
+.show {
+  visibility: visible;
+  opacity: 1;
+}
+
 footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px 0 20px;
   height: 10vh;
   background-color: #333333;
+
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0 10px;
 }
+

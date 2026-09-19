@@ -22,9 +22,6 @@ const List = () => {
 
     return (
         <>
-            <h2>Here you will find some bagpipe tunes along with their music sheets</h2>
-            <h2>Happy Piping!</h2>
-
             <section className="tunes">
 
 

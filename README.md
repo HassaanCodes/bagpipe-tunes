@@ -9,6 +9,9 @@ any of the links, you will be taken to a page with the music sheets.
 
 The goal here is for you to be able to easily find music sheets for bagpipe tunes you like.
 
+You can find a link to the live app on the top-right of this GitHub page. Note that the site 
+takes a few seconds to load, so you might not immediately see the full site and tunes list.
+
 # Enjoy learning and piping
 
 
