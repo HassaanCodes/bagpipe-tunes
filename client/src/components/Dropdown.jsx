@@ -23,7 +23,7 @@ function toggleDropdown(e) {
     if (e) {
         e.stopPropagation()
     }
-    
+
     const dropdown = document.getElementById('dropdown');
     dropdown.classList.toggle('show')
 }
@@ -33,7 +33,7 @@ document.documentElement.addEventListener('click', function() {
 
     let dropdown = document.getElementById('dropdown')
 
-    if (dropdown) {
+    if (dropdown && !dropdown.matches(":hover")) {
 
         if (dropdown.classList.contains('show')) {
             toggleDropdown()
