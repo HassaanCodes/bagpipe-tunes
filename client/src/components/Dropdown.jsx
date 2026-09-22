@@ -1,5 +1,5 @@
 import '../App.css'
-
+import List from './List'
 
 function Dropdown() {
     
@@ -12,6 +12,7 @@ function Dropdown() {
                     <a>Greenwood Side</a>
                     <a>Irish Traditional Reel</a>
                     <a>Atholl Highlanders</a>
+                    <List/>
                 </div>
             </section>
         </>

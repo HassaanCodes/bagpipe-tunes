@@ -1,44 +1,36 @@
-import React, { useState, useEffect } from 'react'
 
-const List = () => {
+import {useState, useEffect} from 'react'
 
-    const [tunes, setTunes] = useState([])
+async function getTunes() {
+    let api_url = import.meta.env.VITE_API_URL
+    let result = await fetch(`${api_url}/tunes`)
+    result = await result.json()
+    return result
+}
 
-    useEffect(() => {
-        getTunes()
+
+function List() {
+    const [tunes, setTunes] = useState({})
+    
+    useEffect( () => { 
+        getTunes().then(list => {
+            setTunes(list)
+        })
     }, [])
 
-    const getTunes = async () => {
-        try {
-            let API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000"
-            let response = await fetch(`${API_URL}/tunes`)
-            let tunes_json = await response.json()
-
-            setTunes(tunes_json)
-        } catch (error) {
-            console.error(error.message)
-        }
+    if (Object.keys(tunes).length > 0) {
+        console.log(tunes)
     }
+    
 
     return (
         <>
-            <section className="tunes">
-
-
-                {
-                    tunes.map(tune => (
-                        <>
-                        <section className='tune'>
-                            <h5>{tune.tune}</h5>
-                            <h5><a href={tune.url} target='_blank'>{tune.sheet}</a></h5>
-                        </section>
-                        </>
-                    ))
-                }
-
-            </section>
+        { Object.values(tunes).map(tune => (
+            <a key={tune.id}>{tune.tune}</a>
+        )) }
         </>
     )
 }
+
 
 export default List
