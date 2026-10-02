@@ -8,10 +8,6 @@ function Dropdown() {
             <section className='list'>
                 <button className='btn' id='btn' onClick={toggleDropdown}>Select Tune</button>
                 <div className='dropdown hide' id='dropdown'>
-                    <a>Scotland the Brave</a>
-                    <a>Greenwood Side</a>
-                    <a>Irish Traditional Reel</a>
-                    <a>Atholl Highlanders</a>
                     <List/>
                 </div>
             </section>

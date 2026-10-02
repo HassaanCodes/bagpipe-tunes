@@ -1,6 +1,7 @@
 
 import {useState, useEffect} from 'react'
 
+
 async function getTunes() {
     let api_url = import.meta.env.VITE_API_URL
     let result = await fetch(`${api_url}/tunes`)
@@ -8,8 +9,29 @@ async function getTunes() {
     return result
 }
 
+async function getUrl(tune) {
+    let api_url = import.meta.env.VITE_API_URL
+    let result = await fetch(`${api_url}/music/${tune}`)
+    result = await result.text()
+    return result
+}
+ 
+
+function Tune({ tune }) {
+    const [url, setUrl] = useState('')
+    
+    useEffect(() => {
+        getUrl(tune.tune).then(link => {setUrl(link)})
+    }, [])
+
+    return (
+        <a key={tune.id} href={url}>{tune.tune}</a>
+    )
+}
+
 
 function List() {
+
     const [tunes, setTunes] = useState({})
     
     useEffect( () => { 
@@ -18,16 +40,15 @@ function List() {
         })
     }, [])
 
-    if (Object.keys(tunes).length > 0) {
-        console.log(tunes)
-    }
     
 
     return (
         <>
         { Object.values(tunes).map(tune => (
-            <a key={tune.id}>{tune.tune}</a>
-        )) }
+
+             <Tune tune={tune}/>
+            
+        ))}
         </>
     )
 }
